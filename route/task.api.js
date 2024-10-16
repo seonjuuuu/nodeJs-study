@@ -11,8 +11,6 @@ router.put('/:id', (req, res) => {
   res.send('update tasks');
 });
 
-router.delete('/:id', (req, res) => {
-  res.send('delete task');
-});
+router.delete('/:id', taskController.deleteTask);
 
 module.exports = router;

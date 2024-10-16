@@ -24,4 +24,21 @@ taskController.getTask = async (req, res) => {
   }
 };
 
+taskController.deleteTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteTask = await Task.findByIdAndDelete(id);
+
+    if (!deleteTask) {
+      return res
+        .status(404)
+        .json({ status: 'fail', message: '해당 id가 없습니다' });
+    }
+    res.status(200).json({ status: 'ok', data: deleteTask });
+  } catch (err) {
+    consol.log(err);
+    res.status(400).json({ status: 'fail', error: err });
+  }
+};
+
 module.exports = taskController;
