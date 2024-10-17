@@ -20,6 +20,7 @@ mongoose
   })
   .catch((err) => console.log('DB connection fail'));
 
-app.listen(2000, () => {
-  console.log('server on 2000');
+const PORT = process.env.PORT || 2000; // Heroku 환경에 맞게 포트를 설정합니다.
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
