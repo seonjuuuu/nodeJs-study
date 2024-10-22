@@ -51,6 +51,11 @@ userController.loginEmail = async (req, res) => {
           message: '아이디 또는 비밀번호가 일치하지 않습니다',
         });
       }
+    } else {
+      return res.status(404).json({
+        status: 'fail',
+        message: '가입된 유저가 아닙니다',
+      });
     }
   } catch (error) {
     console.log(error);
