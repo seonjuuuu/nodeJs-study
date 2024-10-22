@@ -11,6 +11,11 @@ const taskSchema = Schema(
       type: Boolean,
       require: true,
     },
+    order: {
+      type: Number,
+      require: false,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

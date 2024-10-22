@@ -11,4 +11,6 @@ router.put('/:id', taskController.updateTask);
 
 router.delete('/:id', taskController.deleteTask);
 
+router.put('/reorder', taskController.reorderTask);
+
 module.exports = router;
