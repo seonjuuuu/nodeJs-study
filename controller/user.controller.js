@@ -63,4 +63,17 @@ userController.loginEmail = async (req, res) => {
   }
 };
 
+userController.getUser = async (req, res) => {
+  try {
+    const { userId } = req;
+    const user = await User.findById(userId);
+    if (!user) {
+      throw new Error('유저를 찾을 수 없습니다');
+    }
+    res.status(200).json({ status: 'ok', user });
+  } catch (error) {
+    console.log;
+  }
+};
+
 module.exports = userController;
